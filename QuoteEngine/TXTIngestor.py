@@ -12,7 +12,7 @@ class TXTIngestor(IngestorInterface):
         super().__init__()
 
 
-    
+    @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse txt files to be ingested
         

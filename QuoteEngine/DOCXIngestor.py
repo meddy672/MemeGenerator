@@ -13,10 +13,22 @@ class DOCXIngestor(IngestorInterface):
         super().__init__()
 
 
-    
+    @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse docx files to be ingested
         
         :param (path): path to the docx file that will be ingested
         """
-        pass
+        if not cls.can_ingest(path):
+            raise Exception('coannot ingest exception')
+        
+        quotes = []
+        doc = docx.Document(path)
+
+        for para in doc.paragraphs:
+            if para.text != "":
+                parse = parse.textr.split('-')
+                new_quote = QuoteModel(parse[0].strip(' "')), parse[1]
+                quotes.append(new_quote)
+
+        return quotes

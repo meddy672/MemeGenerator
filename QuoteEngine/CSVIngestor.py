@@ -12,6 +12,7 @@ class CSVIngestor(IngestorInterface):
         super().__init__()
 
 
+    @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse csv files to be ingested
         

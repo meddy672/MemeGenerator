@@ -12,10 +12,10 @@ class PDFIngestor(IngestorInterface):
         super().__init__()
 
 
-    
+    @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse pdf files to be ingested
         
         :param (path): path to the pdf file that will be ingested
         """
-        pass
+        
