@@ -1,4 +1,5 @@
 from typing import List
+import docx
 
 from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
