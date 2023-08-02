@@ -17,4 +17,15 @@ class CSVIngestor(IngestorInterface):
         
         :param (path): path to the csv file that will be ingested
         """
-        pass
+        if not cls.can_ingest(path):
+            raise Exception('cannot ingest exception')
+        
+        quotes = []
+
+        csv = pandas.read_csv(path, header=0)
+
+        for index, row in csv.iterrows():
+            new_quote =  QuoteModel(row['body'], row['author'])
+            quotes.append(new_quote)
+
+        return quotes
