@@ -6,4 +6,4 @@ class CSVIngestor(IngestorInterface):
     allowed_extensions = ['csv']
 
     def __init__(self) -> None:
-        pass
+        super().__init__()
