@@ -4,6 +4,10 @@ from typing import List
 from .QuoteModel import QuoteModel
 
 class IngestorInterface(ABC):
+
+    allowed_extensions = []
+
+
     @classmethod
     @abstractmethod
     def can_ingest(cls, path: str) -> bool:
@@ -15,7 +19,8 @@ class IngestorInterface(ABC):
         Returns:
             bool: True if the class can ingest the file, else returns false.
         """
-        pass
+        ext = path.split('.')[-1]
+        return ext in cls.allowed_extensions
 
 
     @classmethod
