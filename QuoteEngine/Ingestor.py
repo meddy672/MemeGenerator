@@ -2,6 +2,9 @@ from typing import List
 
 from QuoteEngine.QuoteModel import QuoteModel
 
+"""
+
+"""
 from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
 from .DOCXIngestor import DOCXIngestor
