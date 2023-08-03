@@ -1,10 +1,10 @@
-from typing import List
+"""A final ingestor that selects the approiate helper based in filetype.
 
+"""
+from typing import List
 from QuoteEngine.QuoteModel import QuoteModel
 
-"""
 
-"""
 from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
 from .DOCXIngestor import DOCXIngestor
@@ -19,4 +19,6 @@ class Ingestor(IngestorInterface):
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        pass
+        for ingestor in cls.ingestors:
+            if ingestor.can_ingest(path):
+                return ingestor.parse(path)
