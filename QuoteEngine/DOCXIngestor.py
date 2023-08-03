@@ -11,7 +11,7 @@ class DOCXIngestor(IngestorInterface):
     allowed_extensions = ['docx']
 
     def __init__(self) -> None:
-        """Instantiate object"""
+        """Instantiate object."""
         super().__init__()
 
 

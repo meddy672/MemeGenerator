@@ -18,7 +18,7 @@ class Ingestor(IngestorInterface):
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Select the appropriate ingestor
+        """Select the appropriate ingestor.
 
         :param (path): path of the file to ingest.
         """

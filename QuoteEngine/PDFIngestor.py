@@ -1,5 +1,5 @@
-"""Strategy object for ingesting pdf files.
-"""
+"""Strategy object for ingesting pdf files."""
+
 import os
 import random
 import subprocess
@@ -15,14 +15,15 @@ class PDFIngestor(IngestorInterface):
     allowed_extensions = ['pdf']
 
     def __init__(self) -> None:
+        """Instantiate object."""
         super().__init__()
 
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse pdf files to be ingested
+        """Parse pdf files to be ingested.
         
-        :param (path): path to the pdf file that will be ingested
+        :param (path): path to the pdf file that will be ingested.
         """
         if not cls.can_ingest(path):
             raise Exception('cannot ingest exception')

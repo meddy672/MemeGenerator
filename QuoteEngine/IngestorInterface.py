@@ -1,12 +1,12 @@
-"""An interface for strategy objects.
-"""
+"""An interface for strategy objects."""
+
 from abc import ABC, abstractmethod
 
 from typing import List
 from .QuoteModel import QuoteModel
 
 class IngestorInterface(ABC):
-    """Defines shared methods between strategy objects"""
+    """Defines shared methods between strategy objects."""
 
     allowed_extensions = []
 

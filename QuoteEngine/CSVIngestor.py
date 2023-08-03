@@ -10,7 +10,7 @@ class CSVIngestor(IngestorInterface):
     allowed_extensions = ['csv']
 
     def __init__(self) -> None:
-        """Instantiate object"""
+        """Instantiate object."""
         super().__init__()
 
 
