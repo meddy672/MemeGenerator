@@ -1,4 +1,4 @@
-"""
+"""An object for creating Quotes.
 """
 class QuoteModel:
     """This is a class create quotes"""

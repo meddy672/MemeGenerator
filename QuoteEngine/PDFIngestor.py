@@ -1,4 +1,4 @@
-"""
+"""Strategy object for ingesting pdf files.
 """
 import os
 import random
