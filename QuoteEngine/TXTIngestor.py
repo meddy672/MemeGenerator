@@ -18,4 +18,17 @@ class TXTIngestor(IngestorInterface):
         
         :param (path): path to the txt file that will be ingested
         """
-        pass
+        if not cls.can_ingest(path):
+            raise Exception('cannot ingest exception')
+
+        quotes = []
+        txt = open(path, 'r')
+
+        for line in txt:
+            if line != "":
+                parse = line.split('-')
+                new_quote = QuoteModel(parse[0].strip(), parse[1].strip())
+                quotes.append(new_quote)
+        txt.close()
+
+        return quotes
