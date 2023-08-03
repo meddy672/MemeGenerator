@@ -1,6 +1,4 @@
-"""A strategy onject for ingesting docx files.
-
-"""
+"""A strategy onject for ingesting docx files."""
 from typing import List
 import docx
 
@@ -13,14 +11,15 @@ class DOCXIngestor(IngestorInterface):
     allowed_extensions = ['docx']
 
     def __init__(self) -> None:
+        """Instantiate object"""
         super().__init__()
 
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse docx files to be ingested
+        """Parse docx files to be ingested.
         
-        :param (path): path to the docx file that will be ingested
+        :param (path): path to the docx file that will be ingested.
         """
         if not cls.can_ingest(path):
             raise Exception('coannot ingest exception')

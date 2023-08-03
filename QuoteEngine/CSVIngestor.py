@@ -1,6 +1,4 @@
-"""A strategy object for ingesting csv files.
-
-"""
+"""A strategy object for ingesting csv files."""
 from typing import List
 import pandas
 
@@ -12,14 +10,15 @@ class CSVIngestor(IngestorInterface):
     allowed_extensions = ['csv']
 
     def __init__(self) -> None:
+        """Instantiate object"""
         super().__init__()
 
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Parse csv files to be ingested
+        """Parse csv files to be ingested.
         
-        :param (path): path to the csv file that will be ingested
+        :param (path): path to the csv file that will be ingested.
         """
         if not cls.can_ingest(path):
             raise Exception('cannot ingest exception')

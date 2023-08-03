@@ -1,6 +1,5 @@
-"""A final ingestor that selects the approiate helper based in filetype.
+"""A final ingestor that selects the approiate helper based in filetype."""
 
-"""
 from typing import List
 from QuoteEngine.QuoteModel import QuoteModel
 
@@ -19,6 +18,10 @@ class Ingestor(IngestorInterface):
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
+        """Select the appropriate ingestor
+
+        :param (path): path of the file to ingest.
+        """
         for ingestor in cls.ingestors:
             if ingestor.can_ingest(path):
                 return ingestor.parse(path)
