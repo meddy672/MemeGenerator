@@ -1,4 +1,4 @@
-"""
+"""A strategy onject for ingesting docx files.
 
 """
 from typing import List

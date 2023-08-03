@@ -1,4 +1,4 @@
-"""
+"""A strategy object for ingesting csv files.
 
 """
 from typing import List
