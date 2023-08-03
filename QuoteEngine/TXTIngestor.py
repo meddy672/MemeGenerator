@@ -1,4 +1,4 @@
-"""
+"""Strategy object for ingesting txt files.
 """
 from typing import List
 
