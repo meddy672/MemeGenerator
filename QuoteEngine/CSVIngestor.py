@@ -9,11 +9,6 @@ class CSVIngestor(IngestorInterface):
 
     allowed_extensions = ['csv']
 
-    def __init__(self) -> None:
-        """Instantiate object."""
-        super().__init__()
-
-
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse csv files to be ingested.

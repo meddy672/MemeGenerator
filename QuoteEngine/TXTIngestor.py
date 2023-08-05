@@ -9,11 +9,6 @@ class TXTIngestor(IngestorInterface):
 
     allowed_extensions = ['txt']
 
-    def __init__(self) -> None:
-        """Instantiate object."""
-        super().__init__()
-
-
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse txt files to be ingested.

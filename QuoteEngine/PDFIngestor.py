@@ -14,11 +14,6 @@ class PDFIngestor(IngestorInterface):
 
     allowed_extensions = ['pdf']
 
-    def __init__(self) -> None:
-        """Instantiate object."""
-        super().__init__()
-
-
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse pdf files to be ingested.
@@ -28,20 +23,19 @@ class PDFIngestor(IngestorInterface):
         if not cls.can_ingest(path):
             raise Exception('cannot ingest exception')
         
-        tmp = f'./tmp/{random.randint(0,1000000)}.txt'
-        call = subprocess.call(['pdftotext', '-raw', path, tmp])
+        tmp = f'./tmp/pdf_to_text.txt'
+        cmd = f"pdftotext -layout -nopgbrk {path} {tmp}"
+        subprocess.call(cmd, shell=True, stderr=subprocess.STDOUT)
     
-        file_ref = open(tmp, "r")
         quotes = []
-    
-        for line in file_ref.readlines():
-            line = line.strip('\n\r').strip()
-            if len(line) > 0:
-                parse = line.split('-')
-                new_quote = QuoteModel(parse[0].strip(' "'), parse[1].strip())
-                quotes.append(new_quote)
-    
-        file_ref.close()
+        with open(tmp) as file_ref:
+            for line in file_ref.readlines():
+                line = line.strip('\n\r').strip()
+                if len(line) > 0:
+                    parse = line.split('-')
+                    new_quote = QuoteModel(parse[0].strip(' "'), parse[1].strip())
+                    quotes.append(new_quote)
+
         os.remove(tmp)
         return quotes
         

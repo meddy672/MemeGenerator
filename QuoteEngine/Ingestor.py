@@ -14,7 +14,7 @@ from .TXTIngestor import TXTIngestor
 class Ingestor(IngestorInterface):
     """Encapsulate Ingestor classes and executes ingestor by file type."""
 
-    ingestors = [DOCXIngestor, CSVIngestor, PDFIngestor, TXTIngestor]
+    ingestors = [TXTIngestor, DOCXIngestor, PDFIngestor, CSVIngestor]
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:

@@ -1,6 +1,6 @@
 """Module for the MemeEngine."""
 
-import random
+from random import randrange, randint
 from PIL import Image, ImageDraw, ImageFont
 
 class MemeEngine:
@@ -8,7 +8,7 @@ class MemeEngine:
 
     def __init__(self, output_dir='./out_img') -> None:
         """Instantiate object."""
-        self.out_dir = output_dir
+        self.output_dir = output_dir
 
     
     def make_meme(self, img_path, text:str, author:str, width=500) -> str:
@@ -29,15 +29,15 @@ class MemeEngine:
         message = f'{self.text} - {self.author}'
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype('./fonts/LilitaOne-Regular.ttf', size=20)
-        text_x_position = random.randint(0, width - 2 * len(message))
-        text_y_position = random.randint(0, (height - font.size))
+        text_x_position = randrange(width // 3)
+        text_y_position = randrange(width // 2)
         draw.text((text_x_position, text_y_position), message, font=font, fill='white')
 
         try:
             extension = img_path.split('.')[-1]
-            filename = f'{random.randint(0,1000000)}'
+            filename = f'{randint(0,1000000)}'
             destination = self.output_dir + '/' + filename + '.' + extension
-            img.save(destination)
+            img.save(destination, format='JPEG')
         except:
             raise Exception('cannot save image into file')
 

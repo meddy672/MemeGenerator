@@ -10,11 +10,6 @@ class DOCXIngestor(IngestorInterface):
 
     allowed_extensions = ['docx']
 
-    def __init__(self) -> None:
-        """Instantiate object."""
-        super().__init__()
-
-
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse docx files to be ingested.
