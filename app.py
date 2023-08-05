@@ -27,7 +27,7 @@ def setup():
     images_path = "./_data/photos/dog/"
 
     imgs = []
-    for root, files in os.walk(images_path):
+    for root, dirs, files in os.walk(images_path):
             imgs = [os.path.join(root, name) for name in files]
 
     return quotes, imgs
