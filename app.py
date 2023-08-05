@@ -1,7 +1,7 @@
 import random
 import os
 import requests
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, request
 
 from MemeEngine import MemeEngine
 from QuoteEngine import Ingestor, QuoteModel
@@ -27,7 +27,7 @@ def setup():
     images_path = "./_data/photos/dog/"
 
     imgs = []
-    for root, dirs, files in os.walk(images_path):
+    for root, files in os.walk(images_path):
             imgs = [os.path.join(root, name) for name in files]
 
     return quotes, imgs
@@ -61,11 +61,11 @@ def meme_post():
     author = request.form['author']
     extension = image_url.split('.')[-1]
 
-    r = requests.get(image_url)
+    result = requests.get(image_url)
     
     tmp = f'./tmp/{random.randint(0, 1000000)}.{extension}'
     with open(tmp, 'wb') as img:
-        img.write(r.content)
+        img.write(result.content)
 
     try:
         path = meme.make_meme(tmp, body, author)
