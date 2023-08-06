@@ -29,7 +29,7 @@ class MemeEngine:
         message = f'{self.text} - {self.author}'
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype('./fonts/LilitaOne-Regular.ttf', size=20)
-        text_x_position = randrange(width // 3)
+        text_x_position = randrange(width // 4)
         text_y_position = randrange(width // 2)
         draw.text((text_x_position, text_y_position), message, font=font, fill='white')
 
