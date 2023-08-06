@@ -23,14 +23,16 @@ cd MemeGenerator
 ```
 pip install -r requirements.txt
 ```
-4. Start Flask server
-```
-flask run --host 127.0.0.1 --port 3000
-```
-5. Install Xpdf tool - necessary for the PDFIngestor module
+4. Install Xpdf tool - necessary for the PDFIngestor module
 ```
 sudo apt-get install -y xpdf
 ```
+5. Start Flask server
+```
+flask run --host 127.0.0.1 --port 3000
+```
+Access the web application at [http://127.0.0.1:3000](http://127.0.0.1:3000)
+
 
 ## Usage
 
