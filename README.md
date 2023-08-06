@@ -1,6 +1,5 @@
 # MemeGenerator Project
 The goal of this project is to build a multimedia application which dynamically generates memes with an image, author and overlaid quote.
-![alt text](./.github-assets/Screenshot%202023-08-06%20133920.png)
 
 ## Table of Content
 * [Required Software]()
