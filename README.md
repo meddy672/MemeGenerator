@@ -2,11 +2,13 @@
 The goal of this project is to build a multimedia application which dynamically generates memes with an image, author and overlaid quote.
 
 ## Table of Content
-* [Required Software]()
-* [Installation]()
-* [Usage]()
+* Required Software
+* Installation
+* Usage
 
 ### Required Software
+* [Python v3.10.6](https://www.python.org/downloads/)
+* [Xpdf tool](https://www.xpdfreader.com/download.html)
 
 ### Installation
 To set up and install the MemeGenerator project on your local machine, follow these steps:
