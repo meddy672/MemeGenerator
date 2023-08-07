@@ -58,6 +58,8 @@ For command line help run:
 python meme.py --help
 ```
 
+The application can process CSV, DOCX, PDF , and TEXT files to extract quotes and authors. To use this functionality you can place your files in the _data/DogQuotes folder. You can also use your own images when generating random memes. For this you must place your images in the folder _data/photos/dog.
+
 
 
 
