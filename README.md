@@ -41,9 +41,21 @@ Access the web application at [http://127.0.0.1:3000](http://127.0.0.1:3000)
 Randon dog memes are generated using the application assets. To create a meme, click the creator button, fill-out the create meme form and click **Create Meme!** button.
 
 #### Command Line Interface (CLI)
-The command line tool can be used with or without arguments. Basic usage:
+The command line tool can be used with or without arguments. 
+
+Without arguments:
 ```
 python meme.py
+```
+
+With arguments:
+```
+python meme.py --path <PATH_TO_IMAGE> --body <MEME_QUOTE> --author <NAME_OF_AUTHOR>
+``` 
+
+For command line help run:
+```
+python meme.py --help
 ```
 
 
