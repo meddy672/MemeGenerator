@@ -12,6 +12,16 @@ class MemeEngine:
 
     
     def make_meme(self, img_path, text:str, author:str, width=500) -> str:
+        """Core functionality of the application.
+        
+        Arguments:
+        :image_path (str): path to the image of the meme
+        :text (str): quote displayed on the meme 
+        :author (str): author of the meme.
+        :width: (int): width of the meme
+
+        Returns path of the generated meme.
+        """
         self.img_path = img_path
         self.text = text
         self.author = author
