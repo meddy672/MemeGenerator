@@ -1,5 +1,5 @@
 """Module for the MemeEngine."""
-
+import textwrap
 from random import randrange, randint
 from PIL import Image, ImageDraw, ImageFont
 
@@ -26,12 +26,15 @@ class MemeEngine:
         height = int(ratio * float(img.size[1]))
         img = img.resize((width, height), Image.NEAREST)
 
-        message = f'{self.text} - {self.author}'
         draw = ImageDraw.Draw(img)
         font = ImageFont.truetype('./fonts/LilitaOne-Regular.ttf', size=20)
-        text_x_position = randrange(width // 4)
-        text_y_position = randrange(width // 2)
-        draw.text((text_x_position, text_y_position), message, font=font, fill='white')
+        text_x_position = randint(10, 150)
+        text_y_position = height // 2
+        counter = 0
+        for line in textwrap.wrap(self.text, 25):
+            draw.text((text_x_position, (text_y_position + counter)), text=line, font=font, fill='white')
+            counter += 20
+        draw.text((text_x_position, (text_y_position + counter + 20)), text=f'{self.author}', font=font, fill='white')
 
         try:
             extension = img_path.split('.')[-1]

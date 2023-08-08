@@ -60,6 +60,12 @@ def meme_post():
     body = request.form['body']
     author = request.form['author']
     extension = image_url.split('.')[-1]
+    if image_url is None or image_url == '':
+        return render_template('error.html', error='Image url is required')
+    elif body is None or body == '':
+        return render_template('error.html', error='Quote body is required')
+    elif author is None or author == '':
+        return render_template('error.html', error='Author is required')
 
     result = requests.get(image_url)
     
